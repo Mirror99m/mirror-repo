@@ -24,8 +24,12 @@ $ ssh -T git@github.com
 键入yes连接成功
 ```
 
-但此时出现问题，报错：ssh: connect to host github.com port 22: Connection refused
-查找网上经验，找到https://zhuanlan.zhihu.com/p/521340971，首先尝试更换端口443连接
+
+# 报错
+## 1.连接github时出现问题
+报错：ssh: connect to host github.com port 22: Connection refused
+查找网上经验，找到https://zhuanlan.zhihu.com/p/521340971
+首先尝试更换端口443连接
 ```
 $ ssh -T -p 443 git@ssh.github.com
 ```
