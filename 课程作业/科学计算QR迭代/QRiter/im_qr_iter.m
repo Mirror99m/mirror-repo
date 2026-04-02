@@ -1,0 +1,20 @@
+function eigv=im_qr_iter(A)
+    B=hessenberg(A);
+    last=diag(B,-1);
+    err=0;
+    tol=1e-3;%精度
+    max_iter=1000;%最大迭代次数
+    while(max_iter)
+        B=qr_givens(B);
+        err=norm(diag(B,-1)-last);%次对角线的收敛性
+        last=diag(B,-1);
+        if(err<tol)
+            break;
+        end
+        max_iter=max_iter-1;
+    end
+    if(max_iter==0)
+        disp('达到最大迭代次数');
+    end
+    eigv=diag(B);
+end
